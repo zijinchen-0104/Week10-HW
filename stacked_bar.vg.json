@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 420,
+    "width": 430,
     "height": 350,
     "title": { "text": "City and Property type VS Price" },
     "data": { "url": "https://raw.githubusercontent.com/zijinchen-0104/Week10-HW/main/perfect.csv" },
