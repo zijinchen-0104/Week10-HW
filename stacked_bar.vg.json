@@ -1,0 +1,45 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 700,
+    "height": 450,
+    "title": { "text": "City and Property type VS Price" },
+    "data": { "url": "https://raw.githubusercontent.com/zijinchen-0104/Week10-HW/main/perfect.csv" },
+    "encoding": {
+        "y": {
+            "field": "city_name",
+            "type": "nominal",
+            "title": "City name"
+        },
+        "x": {
+            "aggregate": "average",
+            "field": "price",
+            "type": "quantitative"
+        }
+    },
+    "layer": [{
+            "mark": "bar",
+            "params": [{ "name": "property_highlight", "select": { "type": "point", "fields": ["property_type"] }, "bind": "legend" }],
+            "encoding": {
+                "color": {
+                    "field": "property_type",
+                    "type": "nominal",
+                    "title": "Property type",
+                    "scale": { "domain": ["house", "townhouse", "unit"], "range": ["#ff7f00", "#984ea3", "#a6cee3"] }
+                },
+                "opacity": { "condition": { "param": "property_highlight", "value": 0.9 }, "value": 0.2 },
+                "tooltip": [
+                    { "aggregate": "average", "field": "price", "type": "quantitative", "title": "Average price", "format": "," },
+                    { "field": "property_type", "type": "nominal", "title": "Property type" },
+                    { "field": "city_name", "type": "nominal", "title": "City name" }
+                ]
+            }
+        },
+        {
+      "mark": {
+        "type": "text",
+        "dx": 400
+      },
+      "encoding": {"text":{ "aggregate": "average", "field": "price", "type": "quantitative" }}
+    }
+  ]
+}
