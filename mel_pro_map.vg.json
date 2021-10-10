@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 700,
-    "height": 550,
+    "width":500,
+    "height": 350,
     "title": "Melbourne Suburb Property Sales Price",
     "projection": {"type": "equirectangular",
     "center": [145.1, -37.95],
